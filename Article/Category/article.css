@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/* 1rem = 10px */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0px;
+}
+
+
+/* ---------------HEADER---------------------*/
+header {
+  width: 100%;
+  border-bottom: 3px solid black;
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.title-str {
+  margin: 0;
+  padding-left: 5%;
+  font-size: 10rem;
+  letter-spacing: -0.05em;
+  line-height: 120%;
+}
+
+.minibox {
+  display: inline-block;
+  padding: 5px;
+  background-color: black;
+}
+.minibox time {
+  color: white;
+  background-color: black;
+  font-size: 1.5rem;
+}
+
+
+.wrapper {
+  display: flex;
+}
+
+
+/* ---------------SIDE BAR---------------------*/
+aside {
+  position: relative;
+  width: 25%;
+  margin: 0 auto;
+  border-right: 3px solid black;
+}
+
+.Table {
+  width: 20%;
+  position: fixed;
+  top: 13rem;
+  left: auto;
+  margin: 4rem 2rem;
+  padding: 0.5em 1em;
+  /*border: solid 3px black;*/
+
+}
+
+.Table p {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    color: black;
+}
+
+.Table .toc {
+  margin: 2rem 0;
+  text-align: center;
+  line-height: 1;
+  font-size: 3rem;
+}
+
+.Table .chap {
+  margin : 0 0 0 2rem;
+  padding: 1rem 0 0 0;
+  font-size: 2rem;
+}
+
+aside ol {
+  margin: 0 0 4rem 0;
+  padding-left: 3rem;
+  list-style: none;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+aside ol li a {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+aside ol li a:hover {
+  color: #646464;
+}
+
+
+/* ---------------MAIN---------------------*/
+main {
+  width: 75%;
+  padding-right: 3rem;
+  box-sizing: border-box;
+}
+
+.Chapter {
+  font-size: 5rem;
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  margin-left: 2rem;
+}
+
+.sec {
+  font-size: 3.5rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  margin-left: 2rem;
+}
+
+section {
+  margin-left: 3rem;
+  margin-bottom: 4rem;
+}
+
+.sec_name {
+  font-size: 2.2rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+}
+
+section {
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+}
+
+b, strong, .bold{
+	font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+}
+
+.image {
+  text-align: center;
+}
+
+.image img {
+   max-width: 100%;
+}
+
+/* ---------------RESPONSIVE---------------------*/
+@media screen and (max-width: 768px) {
+  .wrap {
+    overflow: hidden;
+  }
+
+  header {
+    width: auto;
+    justify-content: space-between;
+  }
+  .title-str {
+    font-size: 16vw;
+  }
+
+  .minibox time {
+    font-size: 1.5vw;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  aside {
+    width: auto;
+    margin: 0;
+    border: none;
+  }
+
+  main {
+    width: auto;
+  }
+
+  .Table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: static;
+    border: none;
+    border-bottom: 3px solid black;
+    text-align: center;
+  }
+
+  .Table .toc {
+    font-size: 10vw;
+  }
+
+  .Table .chap {
+    margin: 0;
+    padding: 0;
+  }
+
+  aside ol {
+    padding: 0;
+  }
+
+  footer {
+    width: auto;
+  }
+}
+
+
+/* ---------------FOOTER---------------------*/
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  color: white;
+  background-color: black;
+
+}
+
+small {
+  display: block;
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
