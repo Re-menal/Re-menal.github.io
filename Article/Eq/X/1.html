@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ["\\(","\\)"]]
+      }
+    });
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          Set: "{\\mathbf{Set}}",
+          Hom: "{\\mathrm{Hom}}",
+        }
+      }
+    });
+		MathJax.Hub.Config({
+  		displayAlign: "left",
+  		displayIndent: "2em"
+		});
+  </script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Integration｜Arithmetic Satellite</title>
+  	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="header">
+		<div class="menu">
+		<p>
+			\begin{align*}
+				I_\alpha (z) = \frac{\left(\frac{z}{2}\right)^\alpha}{\sqrt{\pi}\Gamma\left(\alpha + \frac12\right)} \int_0^\pi e^{-z\cos x} \sin^{2\alpha} x\ dx ~~~\left(\alpha > -\frac12\right)
+			\end{align*}
+		</p>
+		<p>と，</p>
+		<p>
+				\begin{align*}
+					\mathcal{L}[I_\alpha (ax)](s) = \frac{a^\alpha}{\sqrt{s^2 - a^2}(s+ \sqrt{s^2 - a^2})^\alpha}~~~(\alpha > -1)
+				\end{align*}
+		</p>
+		<p>を用いれば，</p>
+		<p>
+			\begin{align*}
+				&\int_0^\pi \frac{\sin^{2\alpha} x}{(a + b\cos x)^{\alpha + 1}} dx \\
+				&= \frac{1}{\Gamma(\alpha + 1)} \int_0^{\pi} \sin^{2\alpha} x \int_0^{\infty} e^{-(a+b\cos x)t} t^\alpha\ dt dx \\
+				&= \frac{1}{\Gamma(\alpha + 1)} \int_0^{\infty} e^{-at} t^\alpha \int_0^\pi e^{-b\cos x \cdot t}\sin^{2\alpha} x\ dx dt \\
+				&= \frac{\sqrt{\pi}\Gamma\left(\alpha + \frac12\right)}{\Gamma(\alpha + 1)} \left(\frac{2}{b}\right)^\alpha \int_0^\infty e^{-at} I_\alpha (bt)\ dt \\
+				&= \sqrt{\frac{\pi}{a^2 - b^2}} \frac{\Gamma\left(\alpha + \frac12\right)}{\Gamma(\alpha + 1)} \left(\frac{2}{a+\sqrt{a^2 - b^2}}\right)^\alpha
+			\end{align*}
+		</p>
+		</div>
+		<!-- <a href="../index.html" class="prev">Top</a> -->
+	</div>
+</body>
+
+</html>
