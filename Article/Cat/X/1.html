@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@Re_menal2" />
+	<meta property="og:title" content="Categories and Sheavesでの極限の定義" />
+	<meta property="og:description" content="Categories and Sheavesの極限の定義が（個人的に）わかりにくかったので整理しました．" />
+	<meta property="og:image" content="https://re-menal.github.io/Article/Cat/X/card.png" />
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ["\\(","\\)"]]
+      }
+    });
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          Set: "{\\mathbf{Set}}",
+          Hom: "{\\mathrm{Hom}}",
+					colim: "{\\mathrm{colim}}",
+					op: "{\\mathrm{op}}",
+        }
+      }
+    });
+		MathJax.Hub.Config({
+  		displayAlign: "left",
+  		displayIndent: "2em"
+		});
+  </script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>Categories and Sheavesでの極限の定義｜Arithmetic Satellite</title>
+  	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="header">
+		<div class="menu">
+			<h1>Categories and Sheavesでの極限の定義</h1>
+			<p>Categories and Sheaves（以下KS）における極限，余極限の定義が（個人的に）わかりにくかったので整理しようと思います．KSでは圏の定義にlocally smallであることを課していませんが，ここでは簡単のために圏はlocally smallであると仮定します．</p>
+			<div class="def">
+				<span class="title">KSにおける極限の定義</span>
+				<p>$C, J$ を圏， $T : J^{\op}\to C$ を関手とする．このとき， $T$ の極限 $\lim T$ を，表現可能性を用いて次のように定義する．</p>
+				<p>
+					\begin{align*}
+						\Hom_C(-, \lim T) \cong \Hom_{\widehat{J}}(\Delta 1, \Hom_C(-, T))
+					\end{align*}
+				</p>
+				<p>次に， $S : J \to C$ を関手としたとき， $S$ の余極限 $\colim\ S$ を，同じく表現可能性を用いて次のように定義する．</p>
+				<p>
+					\begin{align*}
+						\Hom_C(\colim\ S, -) \cong \Hom_{\widehat{J}}(\Delta 1, \Hom_C(S, -))
+					\end{align*}
+				</p>
+				<p>また， $\lim T \in \widehat{C}$ と $\colim\ S \in \Set^J$ を</p>
+				<p>
+					\begin{align*}
+					 &\lim T = \Hom_{\widehat{J}}(\Delta 1, \Hom_C(-, T)) \\
+					 &\colim\ S = \Hom_{\widehat{J}}(\Delta 1, \Hom_C(S, -))
+					\end{align*}
+				</p>
+				<p>と定義する．</p>
+			</div>
+			<p>一方，次のような定義もあります．</p>
+			<div class="def">
+				<span class="title">極限の定義2</span>
+				<p>$C, J$ を圏， $T : J \to C$ を関手とする．このとき， $T$ の極限 $\lim T$を，表現可能性を用いて次のように定義する．</p>
+				<p>
+					\begin{align*}
+						\Hom_C(-, \lim T) \cong \Hom_{C^J}(\Delta(-), T)
+					\end{align*}
+				</p>
+				<p>次に， $T$ の余極限 $\colim\ S$を同じく表現可能性を用いて次のように定義する．</p>
+				<p>
+					\begin{align*}
+						\Hom_C(\colim\ T, -) \cong \Hom_{C^J}(T, \Delta(-))
+					\end{align*}
+				</p>
+			</div>
+			<p>私は2つ目の定義をいつも使っていたのですが，KSでは定義が見慣れない形で書かれていたので混乱してしまいました（極限の $\lim$ とその定義に使われる関手の $\lim$ に同じ記号を当てているのもわかりにくいなと思いました）．</p>
+			<p>上の2つの極限，余極限の定義が一致することを確かめてみます．</p>
+			<div class="theorem">
+				<span class="title">定理</span>
+				<p>$C, J$ を圏，$T: J^{\op} \to C$, $S: J \to C$ を関手とする．このとき，</p>
+				<p>
+					\begin{align*}
+						&\lim T = \Hom_{\widehat{J}}(\Delta 1, \Hom_C(-, T)) \cong \Hom_{C^{J^{\op}}}(\Delta(-), T) \\
+						&\colim\ S = \Hom_{\widehat{J}}(\Delta 1, \Hom_C(S, -)) \cong \Hom_{C^J}(S, \Delta(-))
+					\end{align*}
+				</p>
+			</div>
+			<div class="proof">
+				<span class="title">証明</span>
+				<p>
+					\begin{align*}
+						&\Hom_{\widehat{J}}(\Delta 1, \Hom_C(-, T)) \\
+						&\cong \int_{j \in J^{\op}} \Hom_\Set(1, \Hom_C(-, Tj)) \\
+						&\cong \int_{j \in J^\op} \Hom_C(\Delta(-)(j), Tj) \\
+						&\cong \Hom_{C^{J^\op}}(\Delta(-), T)
+					\end{align*}
+				</p>
+				<p>また，</p>
+				<p>
+					\begin{align*}
+						&\Hom_{\widehat{J}}(\Delta 1, \Hom_C(S, -)) \\
+						&\cong \int_{j \in J^\op} \Hom_\Set(1, \Hom_C(Sj, -)) \\
+						&\cong \int_{j \in J} \Hom_C(Sj, \Delta(-)(j)) \\
+						&\cong \Hom_{C^J}(S, \Delta(-))
+					\end{align*}
+				</p>
+			</div>
+			<p>上の証明では簡単のためにエンドで計算をしましたが，愚直に自然変換をとって確かめることもできます．</p>
+		</div>
+		<!-- <a href="../index.html" class="prev">Top</a> -->
+	</div>
+</body>
+
+</html>
