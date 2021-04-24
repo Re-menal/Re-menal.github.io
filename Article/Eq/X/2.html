@@ -43,11 +43,11 @@
 			<p>
 				\begin{align*}
 					&\sum_{n=0}^{\infty} \frac{1}{2n+1} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \\
-					&= \sum_{n=0}^{\infty} \left(\frac{(2n-1)!!}{(2n)!!}\right) \int_0^1 x^{2n} dx \\
+					&= \sum_{n=0}^{\infty} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \int_0^1 x^{2n} dx \\
 					&= \int_0^1 K(x) dx \\
 					&= \int_0^1 \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-x^2 \sin^2 \theta}} dx\\
 					&= \int_0^{\frac{\pi}{2}} \int_0^1 \frac{dx}{\sqrt{1-x^2 \sin^2 \theta}} d\theta \\
-					&= \int_0^{\frac{\pi}{2}} \Biggl[ \frac{\arcsin(x\sin\theta)}{\sin \theta}\Biggr]_0^{\frac{\pi}{2}} \\
+					&= \int_0^{\frac{\pi}{2}} \Biggl[ \frac{\arcsin(x\sin\theta)}{\sin \theta}\Biggr]_0^{1} \\
 					&= \int_0^{\frac{\pi}{2}} \frac{\theta}{\sin\theta} d\theta \\
 					&= 2G.
 				\end{align*}

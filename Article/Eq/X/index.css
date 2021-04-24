@@ -15,7 +15,7 @@ body {
 
 .menu {
 	width: 95%;
-	height: 100vh;
+	/*height: 100vh;*/
 	margin: 0 0 0 auto;
 	border-left: 3px solid black;
 }
