@@ -39,6 +39,26 @@
 <body>
 	<div class="header">
 		<div class="menu">
+			<p>第一種完全楕円積分 $K(k)$ の積分表示と級数表示を用いれば，</p>
+			<p>
+				\begin{align*}
+					&\sum_{n=0}^{\infty} \frac{1}{2n+1} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \\
+					&= \sum_{n=0}^{\infty} \left(\frac{(2n-1)!!}{(2n)!!}\right) \int_0^1 x^{2n} dx \\
+					&= \int_0^1 K(x) dx \\
+					&= \int_0^1 \int_0^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{1-x^2 \sin^2 \theta}} dx\\
+					&= \int_0^{\frac{\pi}{2}} \int_0^1 \frac{dx}{\sqrt{1-x^2 \sin^2 \theta}} d\theta \\
+					&= \int_0^{\frac{\pi}{2}} \Biggl[ \frac{\arcsin(x\sin\theta)}{\sin \theta}\Biggr]_0^{\frac{\pi}{2}} \\
+					&= \int_0^{\frac{\pi}{2}} \frac{\theta}{\sin\theta} d\theta \\
+					&= 2G.
+				\end{align*}
+			</p>
+			<p>最後の変形ではカタラン定数の積分表示</p>
+			<p>
+				\begin{align*}
+					G = \frac12 \int_0^{\frac{\pi}{2}} \frac{\theta}{\sin\theta} d\theta
+				\end{align*}
+			</p>
+			<p>を用いた．この式は今回の問題の結果を用いずに証明が可能である．</p>
 		</div>
 		<!-- <a href="../index.html" class="prev">Top</a> -->
 	</div>
