@@ -1,4 +1,4 @@
-import {data} from './data';
+import {data} from './data.js';
 
 function fnc() {
   let equation = document.getElementById('eq');
@@ -6,7 +6,7 @@ function fnc() {
 
   // 問題表示
   let num = Math.floor( Math.random() * data.length ); // integrals の要素の番号をランダムに選ぶ
-  equation.innerHTML = data[num][0];
+  equation.innerHTML = '$$' + data[num][0] + '$$';
 
   // 解説表示
   document.getElementById('answer').style.display = 'block';
@@ -29,3 +29,5 @@ function fnc() {
     }
   );
 }
+
+document.getElementById('show').onclick = fnc;
