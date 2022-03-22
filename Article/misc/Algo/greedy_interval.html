@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ["\\(","\\)"]]
+      }
+    });
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          Set: "{\\mathbf{Set}}",
+          Hom: "{\\mathrm{Hom}}",
+        }
+      }
+    });
+		MathJax.Hub.Config({
+  		displayAlign: "left",
+  		displayIndent: "2em"
+		});
+  </script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>区間スケジューリング問題｜qmoi</title>
+  	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="header">
+        <div class="menu">
+            <h1>区間スケジューリング問題</h1>
+            <div class="def">
+                <span class="title">記号</span>
+                <p>相異なる $2$ つの整数 $a, b \in \mathbb{Z}$ で $a < b$ をみたすものに対し、 $(a, b) := \{ x \in \mathbb{Z} \mid a < x < b \}$ とおき、<strong>開区間</strong> という。</p>
+                <p>任意の開区間 $I = (a, b)$ に対して、 $s(I) := a,\ t(I) := b$ とおく。</p>
+            </div>
+            <div class="theorem">
+                <span class="title">問題（区間スケジューリング問題）</span>
+                <p>正の整数 $n$ と、 $n$ 個の異なる開区間 $(s_1, t_1),\ \ldots,\ (s_n, t_n)$ が与えられる。互いに交わらないような開区間の組 $(s_{i_1}, t_{i_1}),\ \ldots,\ (s_{i_r}, t_{i_r})$ （ $r$ は正の整数で、各 $1 \leq j \leq r$ に対し $1 \leq i_j \leq n$ ）を選ぶとき、最大で何個の開区間を選ぶことができるか。</p>
+            </div>
+            <p>$\mathcal{I} := \{ (s_i, t_i) \mid 1 \leq i \leq n \}$ とおく。求めるものを定義する：</p>
+            <div class="def">
+                <span class="title">定義</span>
+                <p>$\mathcal{I}$ の部分集合 $\mathcal{J} \subseteq \mathcal{I}$ で次の $2$ 条件をみたすものを $\mathcal{I}$ の<b> good な部分集合</b>という。</p>
+                <ul class="terms">
+                    <li>$\mathrm{(a)}$ 任意の $I, J \in \mathcal{J},\ I\neq J$ に対して $I \cap J = \emptyset$ が成り立つ。</li>
+                    <li>$\mathrm{(b)}$ $\mathcal{I}$ の部分集合 $\mathcal{J}' \subseteq \mathcal{I}$ が条件 $\mathrm{(a)}$ をみたすなら $\mathcal{J}' \subseteq \mathcal{J}$ が成り立つ。</li>
+                </ul>
+            </div>
+            <div class="theorem">
+                <span class="title">定理</span>
+                <p>次の操作を考える。</p>
+                <ul class="terms">
+                    <li>$1$ 回目の操作： $\mathcal{I}$ の元 $I$ であって $t(I)$ が最も小さいものを $1$ つ選び、 $I_1 := I$ とおく。</li>
+                    <li>$i$ 回目 $(i \geq 2)$ の操作： $\mathcal{I}_i := \{ I \in \mathcal{I} \mid t(I_{i-1}) \leq s(I) \}$ とおく。そして、 $\mathcal{I}_i$ の元 $I$ であって $t(I)$ が最も小さいものを $1$ つ選び、 $I_i := I$ とおく。</li>
+                </ul>
+                <p>このとき、次が成り立つ：</p>
+                <ul class="terms">
+                    <li>$\mathrm{(1)}$ ある正の整数 $m$ が存在して、任意の $I \in \mathcal{I}$ に対して $t(I_m) \geq s(I)$ となる。</li>
+                    <li>$\mathrm{(2)}$ 集合 $\mathcal{J} := \{ I_i \mid 1 \leq i \leq m \}$ は $\mathcal{I}$ の good な部分集合である。</li>
+                </ul>
+            </div>
+            <div class="proof">
+                <span class="title">証明</span>
+                <p>まず、集合 $\mathcal{I}$ は有限集合だから $\mathrm{(1)}$ が成り立つ。 $\mathrm{(2)}$ を示す。</p>
+                <p>
+                    <b>条件 $\mathrm{(a)}$ をみたすこと</b>： $I_i, I_j \in \mathcal{I},\ i < j$ とする。
+                    このとき、 $t(I_i) \leq s(I_{i+1})$ だから $I_i \cap I_j = \emptyset$ が成り立つ。
+                </p>
+                <p>
+                    <b>条件 $\mathrm{(b)}$ をみたすこと</b>： $\mathcal{I}$ の部分集合 $\mathcal{J}' \subseteq \mathcal{I}$ が条件 $\mathrm{(a)}$ をみたすとする。
+                    このとき、 $\mathcal{J} \subsetneq \mathcal{J}'$ が成り立つと仮定して矛盾を導く。
+                    各 $1 \leq i \leq m$ に対し、 $\widetilde{s}_i := s(I_i),\ \widetilde{t}_i := t(I_i)$ とおく。
+                </p>
+                <p>
+                    仮定より、ある元 $(\widetilde{s}, \widetilde{t}) \in \mathcal{J}' \setminus \mathcal{J}$ が存在する。
+                    すると、 $\mathcal{J}'$ は条件 $\mathrm{(a)}$ をみたすから、仮定より任意の $1 \leq i \leq m$ に対して $I_i \cap (\widetilde{s}, \widetilde{t}) = \emptyset$ である。 
+                    よって、次の $3$ つのいずれかが成り立つ：
+                </p>
+                <ul class="terms">
+                    <li>$\mathrm{(i)}$ $\widetilde{t} \leq \widetilde{s}_1$.</li>
+                    <li>$\mathrm{(ii)}$ ある $1 \leq i < m$ が存在して $\widetilde{t}_i \leq \widetilde{s}$ かつ $\widetilde{t} \leq \widetilde{s}_{i+1}$.</li>
+                    <li>$\mathrm{(iii)}$ $\widetilde{t}_m \leq \widetilde{s}$.</li>
+                </ul>
+                <details>
+                    <summary> $\because )$ </summary>
+                    <p>上の $\mathrm{(i)}, \mathrm{(ii)}, \mathrm{(iii)}$ すべてが成り立たないとする。</p>
+                    <p>
+                        準備として、各 $1 \leq i < m$ に対して、主張「 $\widetilde{s}_i < \widetilde{t}$ なら $\widetilde{s}_{i+1} < \widetilde{t}$ である」が成り立つことを示す。
+                    </p>
+                    <p>
+                        <b>証明</b>：もし $\widetilde{s} < \widetilde{s}_i$ なら $I_i \cap (\widetilde{s}, \widetilde{t}) = \emptyset$ に矛盾するから $\widetilde{s}_i \leq \widetilde{s}$ である。
+                        また、もし $\widetilde{s} < \widetilde{t}_i$ なら同じく矛盾だから $\widetilde{t}_i \leq \widetilde{s}$ となる。
+                        よって、いま上の $\mathrm{(ii)}$ の否定を仮定しているから $\widetilde{s}_{i+1} < \widetilde{t}$ でなければならない。（証明終）
+                    </p>
+                    <p>
+                        上の事実と $\mathrm{(i)}$ の否定を用いれば、数学的帰納法より任意の $1 \leq i < m$ に対し $\widetilde{s}_i < \widetilde{t}$ が成り立つ。 
+                        特に、 $\widetilde{s}_m < \widetilde{t}$ である。
+                    </p>
+                    <p>
+                        これと $\mathrm{(iii)}$ の否定を合わせると $\widetilde{s}_m < \widetilde{t}$ かつ $\widetilde{s} < \widetilde{t}_m$ 、すなわち $I_m \cap (\widetilde{s}, \widetilde{t}) \neq \emptyset$ が得られ、矛盾する。
+                    </p>
+                </details>
+                <p>
+                    上のいずれの場合でも矛盾することを示す。
+                </p>
+                <p>
+                    $\mathrm{(i)}$ の場合：このとき $\widetilde{t} \leq \widetilde{s}_1 < \widetilde{t}_1$ だから、開区間 $I_1$ の選び方に矛盾する。
+                </p>
+                <p>
+                    $\mathrm{(ii)}$ の場合：このとき $\widetilde{t} \leq \widetilde{s}_{i+1} < \widetilde{t}_{i+1}$ だから、開区間 $I_{i+1}$ の選び方に矛盾する。 
+                </p>
+                <p>
+                    $\mathrm{(iii)}$ の場合：定理の $\mathrm{(1)}$ より矛盾。
+                </p>
+                <p>
+                    以上の議論により仮定 $\mathcal{J} \subsetneq \mathcal{J}'$ から矛盾が導かれ、 $\mathcal{J}' \subseteq \mathcal{I}$ が成り立つことがわかった。
+                </p>
+            </div>
+            <p>定理の $\mathrm{(2)}$ により、上の操作で得られた正の整数 $m$ が冒頭の区間スケジューリング問題の答えとなることがわかる。</p>
+        </div>
+		<!-- <a href="../index.html" class="prev">Top</a> -->
+	</div>
+</body>
+
+</html>
