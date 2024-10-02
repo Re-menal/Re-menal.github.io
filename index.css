@@ -7,106 +7,55 @@ html {
 body {
 	margin: 0;
 	height: 100%;
-	display: flex;
-	justify-content: space-between;
+	background-color: #433F2F;
 }
 
-/* LEFT SIDE*/
-header {
-	width: 40%;
-	height: 100%;
-
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-nav {
-	width: 95%;
-	height: 95%;
-
-	display: flex;
+.header-title {
+  display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
 	background-color: #E2DBBE;
 }
-nav a, #title {
+#title {
 	text-decoration: none;
 	font-size: 10rem;
 	font-family: 'Bodoni Moda', serif;
 	color: #FCFAD5;
 	margin: 0;
 }
-/*nav a {transition: .4s;}*/
-nav a:hover {color: #433F2F;}
-nav p {
+.header-title p {
 	font-size: 1.5rem;
 	font-family: 'Noto Serif JP', serif;
 	color: #FCFAD5;
 }
 
-/* RIGHT SIDE*/
 main {
-	width: 60%;
-	height: 100%;
-
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+  padding: 1rem;
 }
 .menu {
-	width: 95%;
-	height: 95%;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	font-size: 2.5rem;
 	font-family: 'Noto Serif JP', serif;
 	color: #BEBEBE;
-	background-color: #433F2F;
 }
-ul {padding: 0 8rem 0 12rem; list-style-type: none; border-left: solid 1px #BEBEBE; border-right: solid 1px #BEBEBE;}
-li { padding: 3rem 0; }
+h3 {
+  margin: 2rem 0 0 0;
+	padding-left: 2.5rem;
+  font-size: 2.2rem;
+}
+li p {
+  margin: 0.5rem 0;
+   font-size: 1.3rem;
+  color: #BEBEBE;
+}
 li a {
 	text-decoration: none;
-	letter-spacing: 5rem;
-	color: #BEBEBE;
-	transition: .2s;
+	font-size: 1.8rem;
+	color: #DEDEDE;
 }
 li a:hover {color: #FFFFFF;}
-/* ABOUT */
-.about {align-items: flex-start;}
-.top {height: 25%;}
-.center {height: 50%;}
-.bottom {
-	width: 100%;
-	height: 25%;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-}
-.menu p {margin: 2rem; font-size: 1.5rem;}
-.schedule {border-bottom: solid 1px #BEBEBE; font-size: 1.8rem !important;}
-.back {
-	margin-bottom: 2rem;
-	text-decoration: none;
-	font-size: 2rem;
-	font-family: 'Bodoni Moda', serif;
-	color: #BEBEBE;
-	transition: .2s;
-}
-.back:hover {color: #FFFFFF;}
-.twitter {margin: 2rem; font-size: 2rem; color: #BEBEBE; transition: .2s;}
-.twitter:hover {color: #FFFFFF;}
 
 footer {
-	position: fixed;
-	bottom: 0;
 	width: 100%;
 	text-align: center;
 	font-size: 1rem;
@@ -115,42 +64,4 @@ footer {
 }
 footer p {
 	margin: 0;
-}
-
-/* RESPONSIVE */
-@media screen and (max-width: 760px) {
-	body {
-		flex-direction: column;
-		align-items: center;
-	}
-	/* HEADER */
-	header {
-		width: 100%;
-		height: 30%;
-		display: block;
-	}
-	nav {
-		width: 100%;
-		height: 100%;
-	}
-	/* MAIN */
-	main {
-		width: 95%;
-		height: 70%;
-		flex-direction: column;
-		justify-content: flex-start;
-	}
-	.menu {
-		margin-top: 3%;
-		width: 100%;
-		height: 95%;
-		font-size: 2rem;
-	}
-	ul {padding-left: 2rem;}
-	li {padding: 2rem;}
-	li a {letter-spacing: 2rem;}
-	.about {height: 97.5%;}
-	.top {height: 0;} .center {height: 60%;} .bottom {height: 30%;}
-	.menu p {font-size: 1.3rem;} .schedule {font-size: 1.5rem;} .back, .twiter {font-size: 1.8rem;}
-	footer {height: 2%; text-align: center; font-size: 0.8rem;}
 }
